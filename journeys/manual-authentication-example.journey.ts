@@ -1,10 +1,10 @@
 import { journey, step, monitor, expect, afterAll } from '@elastic/synthetics';
 
-journey('My Example Authentication Journey', ({ page, params }) => {
+journey('My Manual Example Authentication Journey', ({ page, params }) => {
   // Only relevant for the push command to create
   // monitors in Kibana
   monitor.use({
-    id: 'example-monitor',
+    id: 'example-manual-monitor',
     schedule: 10,
   });
 
@@ -38,5 +38,9 @@ journey('My Example Authentication Journey', ({ page, params }) => {
     // Validate we have logged in successfully
     const header = await page.locator('h1.euiTitle');
     expect(await header.textContent()).toContain('Welcome to Elastic');
+  });
+
+  afterAll(async () => {
+    await page.getByTestId('LogoutButton').click();
   });
 });
