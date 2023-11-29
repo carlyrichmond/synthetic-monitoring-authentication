@@ -39,8 +39,4 @@ journey('My Example Authentication Journey', ({ page, params }) => {
     const header = await page.locator('h1.euiTitle');
     expect(await header.textContent()).toContain('Welcome to Elastic');
   });
-
-  afterAll(() => {
-
-  })
 });
