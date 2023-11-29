@@ -1,0 +1,25 @@
+{
+  "name": "synthetic-monitoring-authentication",
+  "version": "1.0.0",
+  "description": "Synthetic Monitoring Authentication Example Using Playwright JS, Elastic Synthetics and GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx @elastic/synthetics journeys",
+    "debug": "npx @elastic/synthetics journeys --no-headless",
+    "push": "npx @elastic/synthetics push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlyrichmond/synthetic-monitoring-authentication.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlyrichmond/synthetic-monitoring-authentication/issues"
+  },
+  "homepage": "https://github.com/carlyrichmond/synthetic-monitoring-authentication#readme",
+  "dependencies": {
+    "@elastic/synthetics": "^1.5.3"
+  }
+}

@@ -74,6 +74,7 @@ web_modules/
 
 # dotenv environment variable files
 .env
+.envrc
 .env.development.local
 .env.test.local
 .env.production.local
@@ -128,3 +129,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.synthetics/

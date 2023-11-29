@@ -1,0 +1,9 @@
+heartbeat.monitors:
+- type: http
+  name: Elastic Lightweight Example
+  id: elastic-lightweight
+  enabled: true
+  urls: "https://elastic.co"
+  schedule: '@every 10m'
+  timeout: 16s
+  alert.status.enabled: true
