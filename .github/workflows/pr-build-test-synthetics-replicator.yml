@@ -12,10 +12,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm install
-      - run: npm start &
-      - run: "npm install @elastic/synthetics && SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics . --reporter=junit"
-        working-directory: ./journeys
+      - run: npm ci
+      - run: npm run ci-test
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()

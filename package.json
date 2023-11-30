@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx @elastic/synthetics journeys",
+    "ci-test": "SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics journeys --reporter=junit",
     "debug": "npx @elastic/synthetics journeys --no-headless",
     "push": "npx @elastic/synthetics push"
   },
