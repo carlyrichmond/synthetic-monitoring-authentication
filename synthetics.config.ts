@@ -3,7 +3,8 @@ import type { SyntheticsConfig } from '@elastic/synthetics';
 export default env => {
   const config: SyntheticsConfig = {
     params: {
-      url: 'https://cloud.elastic.co/'
+      url: 'https://cloud.elastic.co/',
+      redirectUrl: 'https://httpbin.org/response-headers'
     },
     playwrightOptions: {
       ignoreHTTPSErrors: false,

@@ -32,7 +32,7 @@ journey('My Manual Example Authentication Journey', ({ page, params }) => {
     expect(submitButton).toBeEnabled();
     await submitButton.click();
 
-    // How can we wait?
+    // Wait for login
     await page.waitForURL('**/home');
 
     // Validate we have logged in successfully
@@ -40,7 +40,4 @@ journey('My Manual Example Authentication Journey', ({ page, params }) => {
     expect(await header.textContent()).toContain('Welcome to Elastic');
   });
 
-  afterAll(async () => {
-    await page.getByTestId('LogoutButton').click();
-  });
 });

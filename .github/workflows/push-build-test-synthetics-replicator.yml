@@ -1,0 +1,40 @@
+name: Push Workflow- Elastic Synthetics
+on:
+  push:
+    branches: [main, master]
+jobs:   
+  test:
+    env:
+      NODE_ENV: development
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm start &
+      - run: "npm install @elastic/synthetics && SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics . --reporter=junit"
+        working-directory: ./journeys
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          junit_files: '**/junit-*.xml'
+          check_name: Elastic Synthetics Tests
+  push:
+    env:
+      NODE_ENV: production
+      SYNTHETICS_API_KEY: ${{ secrets.SYNTHETICS_API_KEY }}
+    needs: test
+    defaults:
+      run:
+        working-directory: ./apps/synthetics-replicator-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm run push

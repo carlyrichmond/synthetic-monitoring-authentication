@@ -1,16 +1,11 @@
-name: Elastic Synthetics Tests
+name: PR Workflow- Elastic Synthetics
 on:
-  push:
-    branches: [main, master]
   pull_request:
     branches: [main, master]
-  schedule:
-    - cron: '* 0 * * *'
-jobs:
+jobs:   
   test:
-    defaults:
-      run:
-        working-directory: ./advanced-examples
+    env:
+      NODE_ENV: development
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,7 +13,9 @@ jobs:
         with:
           node-version: 18
       - run: npm install
-      - run: "SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics . --reporter=junit"
+      - run: npm start &
+      - run: "npm install @elastic/synthetics && SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics . --reporter=junit"
+        working-directory: ./journeys
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
