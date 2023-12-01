@@ -4,7 +4,12 @@ export default env => {
   const config: SyntheticsConfig = {
     params: {
       url: 'https://cloud.elastic.co/',
-      redirectUrl: 'https://httpbin.org/response-headers'
+      redirectUrl: 'https://httpbin.org/response-headers',
+      username: process.env.ELASTIC_USERNAME,
+      password: process.env.ELASTIC_PASSWORD,
+      auth_endpoint: process.env.EXAMPLE_OAUTH2_ENPOINT,
+      example_access_token: process.env.EXAMPLE_ACCESS_TOKEN,
+      example_client_id: process.env.EXAMPLE_CLIENT_ID
     },
     playwrightOptions: {
       ignoreHTTPSErrors: false,

@@ -20,11 +20,11 @@ journey('My Manual Example Authentication Journey', ({ page, params }) => {
     expect(submitButton).toBeDisabled();
 
     // Add credentials
-    const username = process.env.ELASTIC_USERNAME || '';
+    const username = params.username;
     expect(username).toBeDefined();
     await page.getByTestId('login-username').fill(username);
 
-    const password = process.env.ELASTIC_PASSWORD || '';
+    const password = params.password;
     expect(password).toBeDefined();
     await page.getByTestId('login-password').fill(password);
 
