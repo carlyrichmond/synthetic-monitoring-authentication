@@ -1,6 +1,7 @@
 import { journey, step, monitor, expect } from '@elastic/synthetics';
 
 journey('My Manual Example Authentication Journey', ({ page, params }) => {
+  
   // Only relevant for the push command to create
   // monitors in Kibana
   monitor.use({
@@ -16,6 +17,7 @@ journey('My Manual Example Authentication Journey', ({ page, params }) => {
   });
 
   step('Manual login', async () => {
+    // Check submit button is disabled before entry
     const submitButton = await page.getByTestId('login-button');
     expect(submitButton).toBeDisabled();
 
