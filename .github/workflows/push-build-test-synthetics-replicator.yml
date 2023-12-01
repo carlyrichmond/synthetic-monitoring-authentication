@@ -26,16 +26,8 @@ jobs:
           check_name: Elastic Synthetics Tests
   push:
     env:
-      ELASTIC_USERNAME: ${{ secrets.ELASTIC_USERNAME }}
-      ELASTIC_PASSWORD: ${{ secrets.ELASTIC_PASSWORD }}
-      EXAMPLE_OAUTH2_ENDPOINT: ${{ secrets.EXAMPLE_OAUTH2_ENDPOINT }}
-      EXAMPLE_ACCESS_TOKEN: ${{ secrets.EXAMPLE_ACCESS_TOKEN }}
-      EXAMPLE_CLIENT_ID: ${{ secrets.EXAMPLE_CLIENT_ID }}
       SYNTHETICS_API_KEY: ${{ secrets.SYNTHETICS_API_KEY }}
     needs: test
-    defaults:
-      run:
-        working-directory: ./apps/synthetics-replicator-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
