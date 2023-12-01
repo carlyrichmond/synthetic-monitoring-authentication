@@ -1,6 +1,14 @@
-import { journey, step, expect } from '@elastic/synthetics';
+import { journey, step, monitor, expect } from '@elastic/synthetics';
 
-journey('My Example Auto Authentication Journey', ({ page, params, request }) => {
+journey('My Example Token-based Authentication Journey', ({ page, params, request }) => {
+  
+  // Only relevant for the push command to create
+  // monitors in Kibana
+  monitor.use({
+    id: 'example-token-based-monitor',
+    schedule: 10,
+  });
+  
   // We will populate these variable from example HTTP API responses
   let apiKey;
 
