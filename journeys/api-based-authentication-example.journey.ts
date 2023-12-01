@@ -5,7 +5,7 @@ journey('My Example Auto Authentication Journey', ({ page, params, request }) =>
   let apiKey;
 
   // Lets simulate getting an authentication token back from an auth service
-  const apiBaseUrl = params.auth_endpoint;
+  const apiBaseUrl = params.example_oauth2_endpoint;
   const clientId = params.example_client_id;
 
   // Let's say we expect the auth API to return a token

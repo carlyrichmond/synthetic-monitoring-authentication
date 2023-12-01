@@ -7,7 +7,7 @@ export default env => {
       redirectUrl: 'https://httpbin.org/response-headers',
       username: process.env.ELASTIC_USERNAME,
       password: process.env.ELASTIC_PASSWORD,
-      auth_endpoint: process.env.EXAMPLE_OAUTH2_ENDPOINT,
+      example_oauth2_endpoint: process.env.EXAMPLE_OAUTH2_ENDPOINT,
       example_access_token: process.env.EXAMPLE_ACCESS_TOKEN,
       example_client_id: process.env.EXAMPLE_CLIENT_ID
     },
