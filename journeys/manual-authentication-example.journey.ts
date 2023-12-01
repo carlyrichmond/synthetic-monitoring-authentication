@@ -1,4 +1,4 @@
-import { journey, step, monitor, expect, afterAll } from '@elastic/synthetics';
+import { journey, step, monitor, expect } from '@elastic/synthetics';
 
 journey('My Manual Example Authentication Journey', ({ page, params }) => {
   // Only relevant for the push command to create

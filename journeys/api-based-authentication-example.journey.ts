@@ -1,4 +1,4 @@
-import { journey, step, monitor, expect, beforeAll } from '@elastic/synthetics';
+import { journey, step, expect } from '@elastic/synthetics';
 
 journey('My Example Auto Authentication Journey', ({ page, params, request }) => {
   // We will populate these variable from example HTTP API responses
