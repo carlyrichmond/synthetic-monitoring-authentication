@@ -14,6 +14,10 @@ journey('My Example Auto Authentication Journey', ({ page, params, request }) =>
   
   // Get headers for use by the page
   step('Get token from auth service', async() => {
+    console.log(apiBaseUrl);
+    console.log(clientId);
+    console.log(exampleAccessTokenKey);
+    console.log(exampleAccessToken);
     const resp = await request.get(`${apiBaseUrl}?client_id=${clientId}&${exampleAccessTokenKey}=${exampleAccessToken}`);
     apiKey = resp.headers()[exampleAccessTokenKey];
     expect(apiKey).toEqual(exampleAccessToken);
