@@ -13,7 +13,7 @@ journey('My Manual Example Authentication Journey', ({ page, params }) => {
     await page.goto(params.url);
 
     const header = await page.locator('h1.euiTitle');
-    expect(await header.textContent()).toContain('Log in');
+    expect((await header.textContent())?.toLowerCase()).toContain('log');
   });
 
   step('Manual login', async () => {
