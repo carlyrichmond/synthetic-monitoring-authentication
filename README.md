@@ -1,6 +1,6 @@
 # Synthetic Monitoring Authentication Example
 
-This sample showcases how to use Playwright JS, Elastic Synthetics and GitHub Actions to perform monitoring against an application requiring authentication. This example appears in the Elastic 2023 Advent Calendar.
+This sample showcases how to use Playwright JS, Elastic Synthetics and GitHub Actions to perform monitoring against an application requiring authentication. This example appears in the [Elastic 2023 Advent Calendar](https://discuss.elastic.co/t/dec-8th-2023-en-authentication-in-synthetic-monitoring-with-playwright-and-elastic-synthetics/347290).
 
 ## Overview
 
